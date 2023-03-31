@@ -69,7 +69,7 @@ let score = 0;
 function updateScore() {
     score++;
     const scoreElement = document.getElementById('score');
-    scoreElement.textContent = `Score: ${score}`;
+    // scoreElement.textContent = `Score: ${score}`;
 }
 
 // Add sound effects
@@ -89,7 +89,7 @@ function resetGame() {
     direction = 'right';
     score = 0;
     const scoreElement = document.getElementById('score');
-    scoreElement.textContent = `Score: ${score}`;
+    // scoreElement.textContent = `Score: ${score}`;
 }
 
 // Game loop
