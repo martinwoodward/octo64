@@ -1,29 +1,11 @@
-<!doctype html>
-<html lang="en-us">
-    <body>
-        <!-- the canvas *must not* have any border or padding, or mouse coords will be wrong -->
-        <canvas  id="canvas" style="border: 0px none;"></canvas>
-        <script type="text/javascript" >
-            // Look to see if a file called program.prg exists, and if so, load it.
-            
-            var Module = {
-                arguments: ['-autostart','auto.prg','+sound'],
-                canvas: document.getElementById('canvas'),
-                preRun: [function() {
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', 'auto.prg', true);
-                    xhr.responseType = 'arraybuffer';
-                    xhr.onload = function(e) {
-                        if (this.status == 200) {
-                            var data = new Uint8Array(this.response);
-                            FS.createDataFile('/', 'auto.prg', data, true, true);
-                        }
-                    };
-                    xhr.send();
-                }]
-            };
-
-        </script>
-        <script type="text/javascript" src="js/x64.js"></script>
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-board"></div>
+    <script src="script.js"></script>
+</body>
 </html>
