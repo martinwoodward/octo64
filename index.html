@@ -11,12 +11,12 @@
                 canvas: document.getElementById('canvas'),
                 preRun: [function() {
                     var xhr = new XMLHttpRequest();
-                    xhr.open('GET', 'program.prg', true);
+                    xhr.open('GET', 'auto.prg', true);
                     xhr.responseType = 'arraybuffer';
                     xhr.onload = function(e) {
                         if (this.status == 200) {
                             var data = new Uint8Array(this.response);
-                            FS.createDataFile('/', 'program.prg', data, true, true);
+                            FS.createDataFile('/', 'auto.prg', data, true, true);
                         }
                     };
                     xhr.send();
