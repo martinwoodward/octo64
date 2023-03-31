@@ -7,7 +7,7 @@
             // Look to see if a file called program.prg exists, and if so, load it.
             
             var Module = {
-                arguments: ['+sound'],
+                arguments: ['-autostart','program.prg','+sound'],
                 canvas: document.getElementById('canvas'),
                 preRun: [function() {
                     var xhr = new XMLHttpRequest();
