@@ -31,11 +31,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install cc65
-        run: sudo apt-get install -y cc65
+      - name: Install ACME
+        run: sudo apt-get install -y acme
       - name: Compile asm to prg
         run: |
-          cl65 -t c64 -o program.prg hello.asm  
+          acme -f cbm -o program.prg hello.asm 
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
