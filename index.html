@@ -4,10 +4,25 @@
         <!-- the canvas *must not* have any border or padding, or mouse coords will be wrong -->
         <canvas  id="canvas" style="border: 0px none;"></canvas>
         <script type="text/javascript" >
+            // Look to see if a file called program.prg exists, and if so, load it.
+            
             var Module = {
                 arguments: ['+sound'],
                 canvas: document.getElementById('canvas'),
+                preRun: [function() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'program.prg', true);
+                    xhr.responseType = 'arraybuffer';
+                    xhr.onload = function(e) {
+                        if (this.status == 200) {
+                            var data = new Uint8Array(this.response);
+                            FS.createDataFile('/', 'program.prg', data, true, true);
+                        }
+                    };
+                    xhr.send();
+                }]
             };
+
         </script>
         <script type="text/javascript" src="js/x64.js"></script>
     </body>
